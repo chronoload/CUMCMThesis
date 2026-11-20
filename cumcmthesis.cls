@@ -1,6 +1,6 @@
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesClass{cumcmthesis}
-              [2026/08/26 v2.9 Standard LaTeX Template for CUMCM]
+              [2026/11/20 v3.0 Standard LaTeX Template for CUMCM (xelatex/lualatex)]
 %% Inital Code
 \newif\if@mcm@bwprint\@mcm@bwprintfalse
 \newif\if@mcm@preface\@mcm@prefacetrue
@@ -30,11 +30,13 @@
 %% Loading Class
 \LoadClass[a4paper,12pt]{article}
 %% Loading Package
-\RequirePackage{ifxetex}
-\RequireXeTeX
-\ifxetex\else
-\ClassError{mcmthesis}{You must use the `xelatex' driver\MessageBreak Please choose `xelatex'}{%
-Just choose `xelatex', no `pdflatex' or `latex' and so on.}
+% 允许 xelatex 与 lualatex 两种 Unicode 引擎，禁止 pdflatex/latex.
+\RequirePackage{iftex}
+\ifXeTeX\else
+  \ifLuaTeX\else
+    \ClassError{cumcmthesis}{You must use the `xelatex' or `lualatex' driver\MessageBreak Please choose `xelatex' or `lualatex'}{%
+    Just choose `xelatex' or `lualatex', no `pdflatex' or `latex' and so on.}
+  \fi
 \fi
 % 支持中文的 ctex 宏包
 \RequirePackage{ctex}
