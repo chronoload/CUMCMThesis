@@ -27,6 +27,9 @@ cumcmthesis 是为全国大学生数学建模竞赛编写的 `LaTeX` 模板, 旨
 
 ## 更新记录
 
+2026 年 11 月：
+1， 允许使用 `lualatex` 引擎编译（`xelatex` 仍然可用），不再强制只能用 `xelatex`。
+
 2026 年 8 月：
 1， 更新了 AI 使用声明书。
 
@@ -81,3 +84,12 @@ cumcmthesis 是为全国大学生数学建模竞赛编写的 `LaTeX` 模板, 旨
 ```
     \documentclass[bwprint]{cumcmthesis}
 ```
+
+## 编译
+
+使用 `xelatex` 或 `lualatex` 编译均可，请不要使用 `pdflatex` / `latex`。命令行示例：
+```
+    xelatex example
+    latexmk -xelatex example
+```
+使用 `lualatex` 时相应改为 `lualatex example` 或 `latexmk -lualatex example`。
